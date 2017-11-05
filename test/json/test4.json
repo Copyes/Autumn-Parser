@@ -38,7 +38,6 @@
             "flex-grow": "3"
         },
         ".test-img": {
-            "content-mode": "scale-fill",
             "-autumn-width": "100*100vw/750",
             "-autumn-height": "100*100vw/750",
             "overflow": "hidden",

@@ -12,7 +12,7 @@ module.exports = function convert (
 
     }
     return new Promise((resolve, reject) => {
-        cssParser(css).then(cssString => {
+        cssParser(css, htmlParser.htmlParser(html)).then(cssString => {
             resolve({
                 html: `<head><meta charset='utf-8'></head>${htmlParser.renderToHtml(htmlParser.htmlParser(html))}`,
                 css: cssString,

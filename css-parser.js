@@ -11,7 +11,8 @@ const postcssBackgroundImage = require('./plugins/postcss-background-image')
 const postcssPrefixAutumn = require('./plugins/postcss-prefix-autumn')
 // transform unit
 const postcssTransformUnit = require('./plugins/postcss-transform-unit')
-
+// check img
+const postcssCheckImage = require('./plugins/postcss-img-check')
 /*
 fs.readFile('./test-example.css', (err, content) => {
     postcss([
@@ -44,7 +45,7 @@ fs.readFile('./test-example.css', (err, content) => {
 })
 */
 
-module.exports = function renderCSS (cssString) {
+module.exports = function renderCSS (cssString, elements) {
     return new Promise((resolve, reject) => {
         postcss([
             // plugins
@@ -54,6 +55,9 @@ module.exports = function renderCSS (cssString) {
             postcssPrefixAutumn(),
             postcssTransformUnit({
                 baseWidth: 750
+            }),
+            postcssCheckImage({
+                objs: elements
             })
         ])
         .process(cssString)

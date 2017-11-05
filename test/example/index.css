@@ -29,7 +29,6 @@
 }
 
 .test-img {
-    content-mode: scale-fill;
     width: 100px;
     height: 100px;
     overflow: hidden;
